@@ -56,7 +56,23 @@
       <!-- Right Panel: Session Verification Form -->
       <div class="auth-panel auth-panel-right">
         <div class="auth-panel-inner">
-          <div class="auth-form-header" style="margin-top: 20px;">
+          
+          <!-- MOBILE EXCLUSIVE HEADER (Android & Mobile Viewports <= 860px) -->
+          <div class="auth-mobile-header">
+            <div class="auth-mobile-brand-pill">
+              <div class="auth-mobile-logo-wrap">
+                <img src="img/antra-logo.png" alt="antra" class="auth-mini-logo">
+              </div>
+              <span class="auth-mobile-brand-name">ANTRA</span>
+              <span class="auth-live-status-dot"></span>
+            </div>
+            <h1 class="auth-mobile-title">Welcome to <strong>antra</strong></h1>
+            <p class="auth-mobile-subtitle">
+              Minimalist, end-to-end encrypted messaging designed for pure focus and privacy.
+            </p>
+          </div>
+
+          <div class="auth-form-header">
             <div class="auth-icon-badge">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="1.8">
                 <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
@@ -136,7 +152,23 @@
       <!-- Right Panel: Create your alias Form -->
       <div class="auth-panel auth-panel-right">
         <div class="auth-panel-inner">
-          <div class="auth-reg-heading-wrap" style="margin-top: 10px;">
+          
+          <!-- MOBILE EXCLUSIVE HEADER (Android & Mobile Viewports <= 860px) -->
+          <div class="auth-mobile-header">
+            <div class="auth-mobile-brand-pill">
+              <div class="auth-mobile-logo-wrap">
+                <img src="img/antra-logo.png" alt="antra" class="auth-mini-logo">
+              </div>
+              <span class="auth-mobile-brand-name">ANTRA</span>
+              <span class="auth-live-status-dot"></span>
+            </div>
+            <h1 class="auth-mobile-title">Join the <strong>antra</strong> frequency</h1>
+            <p class="auth-mobile-subtitle">
+              Create your custom cryptographic alias with zero-knowledge local key generation.
+            </p>
+          </div>
+
+          <div class="auth-reg-heading-wrap">
             <h2 class="auth-reg-title">Create your alias</h2>
             <p class="auth-reg-sub">Fill out the credentials below to enter the workspace</p>
           </div>
@@ -205,6 +237,12 @@
               <span>CREATE IDENTITY & PROCEED</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </button>
+
+            <!-- SWITCH TO SIGN IN (MOBILE & CONVENIENCE) -->
+            <div class="auth-switch-prompt" style="margin-top: 16px;">
+              <span>Already registered?</span>
+              <button type="button" class="auth-inline-link btn-goto-login">Sign into existing account</button>
+            </div>
 
             <div class="auth-terms-note">
               By creating an account, you accept antra's zero-knowledge cryptographic protocol.

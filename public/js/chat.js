@@ -3,6 +3,7 @@ const Chat = {
   activeRoom: null, // { id, name, type, icon, desc }
   replyingTo: null,
   messageCache: new Map(), // roomId -> messages[] for 0ms instant loading
+  loadRequestId: 0,
   isRecordingVoice: false,
   mediaRecorder: null,
   audioChunks: [],

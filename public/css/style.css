@@ -3680,25 +3680,365 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
   display: block;
 }
 
-/* Responsive auth card adjustments */
+/* Base Mobile Header rule (Hidden by default on Desktop) */
+.auth-mobile-header {
+  display: none;
+}
+
+/* ==========================================================================
+   DEDICATED NATIVE MOBILE / ANDROID AUTHENTICATION EXPERIENCE (<= 860px)
+   ========================================================================== */
 @media (max-width: 860px) {
-  .auth-split-card {
-    flex-direction: column;
+  /* Overlay full-height with fluid viewport and elastic touch scrolling */
+  .auth-fullscreen-overlay {
     height: 100vh;
-    max-height: 100vh;
+    height: 100dvh;
+    min-height: 100vh;
+    min-height: 100dvh;
+    width: 100vw;
+    background: #05070c;
     overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    display: block;
+    padding: 0;
   }
+
+  .auth-split-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    height: auto;
+    max-width: 100%;
+    overflow: visible;
+    background: transparent;
+  }
+
+  /* 1. HIDE THE REDUNDANT DESKTOP STORY PANEL ON MOBILE */
+  /* This eliminates the massive wall of text that pushed the forms below the fold! */
   .auth-panel-left {
-    border-right: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    padding: 28px 24px;
+    display: none !important;
   }
+
+  /* 2. DEDICATED MOBILE PANEL STYLING */
   .auth-panel-right {
-    padding: 28px 24px;
+    flex: none;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    height: auto;
+    padding: max(24px, env(safe-area-inset-top)) 20px max(32px, env(safe-area-inset-bottom)) 20px;
+    background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.16) 0%, rgba(5, 7, 12, 0.98) 55%, #05070c 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
   }
+
+  .auth-panel-inner {
+    width: 100%;
+    max-width: 400px;
+    min-height: auto;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 8px 0;
+  }
+
+  /* 3. NATIVE MOBILE BRANDING HEADER */
+  .auth-mobile-header {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 22px;
+  }
+
+  .auth-mobile-brand-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 14px 6px 8px;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    margin-bottom: 14px;
+  }
+
+  .auth-mobile-logo-wrap {
+    width: 28px;
+    height: 28px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+  }
+
+  .auth-mobile-logo-wrap .auth-mini-logo {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+  }
+
+  .auth-mobile-brand-name {
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    color: #ffffff;
+  }
+
+  .auth-live-status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.9);
+  }
+
+  .auth-mobile-title {
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: #f8fafc;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    margin: 0 0 6px 0;
+  }
+
+  .auth-mobile-title strong {
+    font-weight: 800;
+    color: #ffffff;
+    background: linear-gradient(135deg, #ffffff 40%, #c7d2fe 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .auth-mobile-subtitle {
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: #94a3b8;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  /* Compact desktop header inside right panel */
+  .auth-form-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 18px;
+  }
+
+  .auth-icon-badge {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+
+  .auth-section-title {
+    font-size: 0.74rem;
+    letter-spacing: 0.14em;
+    color: #94a3b8;
+  }
+
+  .auth-reg-heading-wrap {
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .auth-reg-title {
+    font-size: 1.35rem;
+    text-align: center;
+  }
+
+  .auth-reg-sub {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  /* 4. ANDROID NATIVE TOUCH INPUT FIELDS */
+  .auth-underline-group {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    padding: 6px 14px;
+    margin-bottom: 14px;
+    min-height: 52px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .auth-underline-group:focus-within {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
+  }
+
+  .auth-underline-group .auth-input-icon {
+    font-size: 1rem;
+    color: #94a3b8;
+    margin-right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .auth-underline-group input {
+    font-size: 16px !important; /* Critical: prevents iOS/Android virtual keyboard zoom */
+    font-weight: 500;
+    color: #ffffff !important;
+    padding: 8px 0 !important;
+    height: auto !important;
+  }
+
+  .auth-underline-group input::placeholder {
+    color: #64748b;
+    font-size: 0.9rem;
+  }
+
+  .auth-password-toggle-btn {
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .auth-password-toggle-btn:active {
+    transform: scale(0.92);
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  /* 5. REGISTRATION GRID STACKING */
   .auth-input-grid-2col {
     grid-template-columns: 1fr;
     gap: 12px;
+  }
+
+  .auth-col-label-row label {
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    color: #94a3b8;
+    margin-bottom: 6px;
+    display: inline-block;
+  }
+
+  .input-feedback-msg {
+    font-size: 0.74rem;
+    margin-top: -6px;
+    margin-bottom: 8px;
+    padding-left: 4px;
+  }
+
+  /* 6. TOUCH-FRIENDLY COLOR PILLS */
+  .auth-accent-picker-wrap {
+    margin-top: 14px;
+    margin-bottom: 16px;
+  }
+
+  .auth-accent-label-row {
+    font-size: 0.72rem;
+    margin-bottom: 8px;
+  }
+
+  .auth-color-pills-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+  }
+
+  .auth-color-pill {
+    height: 38px;
+    border-radius: 8px;
+    flex: 1;
+  }
+
+  .auth-color-pill:active {
+    transform: scale(0.94);
+  }
+
+  /* 7. NATIVE ACTION BUTTONS */
+  .btn-auth-primary {
+    min-height: 52px;
+    border-radius: 14px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin-top: 14px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .btn-auth-primary:active {
+    transform: scale(0.98);
+  }
+
+  .btn-auth-primary.btn-auth-indigo {
+    background: #6366f1;
+    color: #ffffff;
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.35);
+  }
+
+  .btn-auth-primary.btn-auth-indigo:active {
+    background: #4f46e5;
+  }
+
+  /* 8. PROMPT & SWITCH LINK */
+  .auth-switch-prompt {
+    font-size: 0.88rem;
+    color: #94a3b8;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .auth-inline-link {
+    font-size: 0.88rem;
+    color: #818cf8;
+    font-weight: 600;
+    text-decoration: underline;
+    padding: 4px 6px;
+  }
+
+  .auth-inline-link:active {
+    color: #a5b4fc;
+  }
+
+  .auth-terms-note {
+    font-size: 0.72rem;
+    color: #64748b;
+    margin-top: 14px;
+    line-height: 1.4;
+    text-align: center;
   }
 }
 

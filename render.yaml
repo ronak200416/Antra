@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: pulse-chat
+    name: antra
     env: node
     plan: free
     buildCommand: npm install

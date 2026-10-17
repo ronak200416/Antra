@@ -12,7 +12,7 @@ const multer = require('multer');
 const db = require('./database');
 
 const PORT = process.env.PORT || 3000;
-const JWT_SECRET = process.env.JWT_SECRET || 'pulse_chat_secret_key_super_secure_2026';
+const JWT_SECRET = process.env.JWT_SECRET || 'antra_chat_secret_key_super_secure_2026';
 
 // Ensure uploads directory exists
 const UPLOAD_DIR = path.join(__dirname, 'uploads');

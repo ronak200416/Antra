@@ -1,5 +1,5 @@
 {
-  "name": "pulse-chat",
+  "name": "antra",
   "version": "1.0.0",
   "description": "Real-time cross-platform messaging web application powered by Node.js, Socket.IO, and SQLite",
   "main": "server.js",

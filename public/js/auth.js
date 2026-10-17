@@ -82,23 +82,20 @@ const Auth = {
     setupPasswordToggle('btn-toggle-login-pwd', 'login-password');
     setupPasswordToggle('btn-toggle-reg-pwd', 'reg-password');
 
-    // Switch between Login & Register views
-    const btnGotoRegister = document.getElementById('btn-goto-register');
-    const btnGotoLogin = document.getElementById('btn-goto-login');
-
-    if (btnGotoRegister) {
-      btnGotoRegister.addEventListener('click', (e) => {
+    // Switch between Login & Register views (support ID and class selectors across desktop & mobile)
+    document.querySelectorAll('#btn-goto-register, .btn-goto-register').forEach(btn => {
+      btn.addEventListener('click', (e) => {
         e.preventDefault();
         this.switchToRegister();
       });
-    }
+    });
 
-    if (btnGotoLogin) {
-      btnGotoLogin.addEventListener('click', (e) => {
+    document.querySelectorAll('#btn-goto-login, .btn-goto-login').forEach(btn => {
+      btn.addEventListener('click', (e) => {
         e.preventDefault();
         this.switchToLogin();
       });
-    }
+    });
 
     // Register color pills bar picker
     if (this.regColorPicker) {

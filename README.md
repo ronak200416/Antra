@@ -1,4 +1,4 @@
-# ⚡ Pulse Chat — Real-Time Cross-Platform Messaging
+# ⚡ Antra — Real-Time Cross-Platform Messaging
 
 An ultra-fast, cross-platform real-time messaging web application powered by **Node.js**, **Socket.IO**, and **SQLite**. Built to run directly from your PC as a live server with seamless phone & desktop connectivity, local Wi-Fi QR code onboarding, worldwide public tunneling, and 24/7 cloud hosting compatibility.
 
@@ -60,7 +60,7 @@ When you're ready to make your chat app live 24/7 without keeping your PC powere
    git add .
    git commit -m "Initial commit"
    git branch -M main
-   git remote add origin https://github.com/your-username/pulse-chat.git
+   git remote add origin https://github.com/ronak200416/Antra.git
    git push -u origin main
    ```
 2. Go to [Render.com](https://render.com) and click **New > Web Service**.
